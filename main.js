@@ -77,11 +77,16 @@ function init(){
   })
 
 
-  const localWMSLayer = new ol.layer.WMS("http://ssc.psu.ru:8080/geoserver/st2021/wms",
-       {LAYERS: 'st2021:grp4_map_grp',
+  const localWMSLayer = new ol.layer.Tile({
+    source: new ol.source.TileWMS({
+      url:"http://ssc.psu.ru:8080/geoserver/st2021/wms",
+      params:{
+        LAYERS: 'st2021:grp4_map_grp',
         FORMAT: 'image/png',
-        TRANSPARENT: true},
-    {attributions: '<a href=http://ssc.psu.ru:8080/geoserver/>© iKraken<a/>',
+        TRANSPARENT: false
+      },
+      attributions: '<a href=http://ssc.psu.ru:8080/geoserver/>© iKraken<a/>'
+    }),
     visible: false,
     title: 'LocalWMS'
   })
