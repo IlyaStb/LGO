@@ -1,9 +1,5 @@
 window.onload = init;
 function init(){
-  // Coordinates for World Mercator (Yandex Maps)
-  const center_ya = [6259594, 7939703];
-  const extent_ya = [6193404, 7894429, 6325783, 7984977];
-  const shift_ya = center_ya[1] - center_sm[1];
   const scaleLineControl = new ol.control.ScaleLine();
   const fullScreenControl = new ol.control.FullScreen();
   const overViewMapControl = new ol.control.OverviewMap({
@@ -77,20 +73,6 @@ function init(){
   })
 
 
-  const localWMSLayer = new ol.layer.Tile({
-    source: new ol.source.TileWMS({
-      url:"http://ssc.psu.ru:8080/geoserver/st2021/wms",
-      params:{
-        LAYERS: 'st2021:grp4_map_grp',
-        FORMAT: 'image/png',
-        TRANSPARENT: false
-      },
-      attributions: '<a href=http://ssc.psu.ru:8080/geoserver/>© iKraken<a/>'
-    }),
-    visible: false,
-    title: 'LocalWMS'
-  })
-
   var yaExtent = [-20037508.342789244, -20037508.342789244, 20037508.342789244, 20037508.342789244];
   proj4.defs('EPSG:3395', '+proj=merc +lon_0=0 +k=1 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs');
   ol.proj.proj4.register(proj4);
@@ -132,7 +114,7 @@ function init(){
 
   const baseMapsLayerGroup = new ol.layer.Group({
     layers: [
-      osmStandard,osmHumanitarian,bingMapsSAT,localWMSLayer,yandexMapsStandard,
+      osmStandard,osmHumanitarian,bingMapsSAT,yandexMapsStandard,
       yandexSAT, StamenWatercolorLayer
     ]
   })
