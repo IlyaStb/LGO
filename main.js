@@ -104,9 +104,10 @@ function init(){
     visible: false,
     title: 'YandexSAT'
   })
+  
   const StamenWatercolorLayer = new ol.layer.Tile({
-    source: new ol.source.XYZ({
-      url: "http://tile.stamen.com/watercolor/{z}/{x}/{y}.jpg",
+    source: new ol.source.Stamen({
+      layer: "watercolor",
     }),
     visible: false,
     title: 'StamenWatercolor'
