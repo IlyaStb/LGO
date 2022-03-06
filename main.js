@@ -113,16 +113,15 @@ function init(){
     title: 'StamenWatercolor'
   })
   
-    const localWMSLayer = new ol.layer.Tile({
-    source: new ol.source.TileWMS({
-      url:'http://ssc.psu.ru:8080/geoserver/st2021/wms',
-      params:{
-        LAYERS: 'st2021:grp4_map_grp',
-        FORMAT: 'image/png',
-        TRANSPARENT: false
-      },
+    const localWMSLayer = new ol.layer.WMS("st2021",'http://ssc.psu.ru:8080/geoserver/st2021/wms',
+                                           {
+      LAYERS:["grp4_map_grp"],
+      TRANSPARENT: false,
+      FORMAT: "image/png",
+    },
+                                           {
       attributions: '<a href=http://ssc.psu.ru:8080/geoserver/>© iKraken<a/>'
-    }),
+    },
     visible: false,
     title: 'LocalWMS'
   })
