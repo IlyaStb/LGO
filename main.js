@@ -121,7 +121,7 @@ function init(){
         'FORMAT': 'image/png',
         'TRANSPARENT': false
       },
-      attributions: '<a href=http://ssc.psu.ru:8080/geoserver/>© iKraken<a/>'
+      attributions: '<a href=http://ssc.psu.ru:8080/geoserver/>© iKrakenn<a/>'
     }),
     visible: false,
     title: 'LocalWMS'
