@@ -1,16 +1,9 @@
 window.onload = init;
 function init(){
-  // Coordinates for WGS84 (Geographical)
-  const center_wgs = [56.234380, 58.040984];
-  const extent_wgs = [55.63630, 57.82491, 56.82548, 58.25627];
-  // Coordinates for Spherical Mercator (OpenStreet Maps)
-  const center_sm = [6259594, 7975987];
-  const extent_sm = [6193404, 7930627, 6325783, 8021346];
   // Coordinates for World Mercator (Yandex Maps)
   const center_ya = [6259594, 7939703];
   const extent_ya = [6193404, 7894429, 6325783, 7984977];
   const shift_ya = center_ya[1] - center_sm[1];
-
   const scaleLineControl = new ol.control.ScaleLine();
   const fullScreenControl = new ol.control.FullScreen();
   const overViewMapControl = new ol.control.OverviewMap({
@@ -84,16 +77,11 @@ function init(){
   })
 
 
-  const localWMSLayer = new ol.layer.Tile({
-    source: new ol.source.TileWMS({
-      url:"http://ssc.psu.ru:8080/geoserver/st2021/wms",
-      params:{
-        LAYERS: 'st2021:grp4_map_grp',
+  const localWMSLayer = new ol.layer.WMS("http://ssc.psu.ru:8080/geoserver/st2021/wms",
+                                         {LAYERS: 'st2021:grp4_map_grp',
         FORMAT: 'image/png',
-        TRANSPARENT: false
-      },
-      attributions: '<a href=http://ssc.psu.ru:8080/geoserver/>© iKraken<a/>'
-    }),
+        TRANSPARENT: false}
+                                         {attributions: '<a href=http://ssc.psu.ru:8080/geoserver/>© iKraken<a/>',
     visible: false,
     title: 'LocalWMS'
   })
