@@ -115,7 +115,7 @@ function init(){
   
   const localWMSLayer = new ol.layer.Tile({
     source: new ol.source.TileWMS({
-      url:'http://ssc.psu.ru:8080/geoserver/st2021/wms',
+      src:'http://ssc.psu.ru:8080/geoserver/st2021/wms',
       params:{
         'LAYERS': 'st2021:grp4_map_grp',
         'FORMAT': 'image/png',
