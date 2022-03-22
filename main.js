@@ -1,5 +1,9 @@
 window.onload = init;
 function init(){
+  
+    proj4.defs("EPSG:32640","+proj=utm +zone=40 +datum=WGS84 +units=m +no_defs");
+    ol.proj.proj4.register(proj4);
+  
   const scaleLineControl = new ol.control.ScaleLine();
   const fullScreenControl = new ol.control.FullScreen();
   const overViewMapControl = new ol.control.OverviewMap({
@@ -20,17 +24,18 @@ function init(){
   });
   const zoomSliderControl = new ol.control.ZoomSlider();
   const zoomToExtentControl = new ol.control.ZoomToExtent({
-    extent: ([6411284, 7971111, 6458120, 8004633])
+    extent: ([540524, 6427642, 555171, 6452748])
   });
 
 
   const map = new ol.Map({
     view: new ol.View({
-      center: ol.proj.fromLonLat([57.80, 58.10]),
+      center:[547860,6440180],
       zoom: 12,
       maxZoom: 16,
       minZoom: 13,
-      rotation: 0.5
+      rotation: 0.5,
+      projection:'EPSG:32640'
     }),
     layers: [
       new ol.layer.Tile({
@@ -197,11 +202,24 @@ function init(){
     opacity: 0.3,
     visible: false,
     title: 'TileDebugLayer'
+  }) 
+  
+  const TESTGeoJSON = new ol.layer.VectorImage({
+    source: new ol.source.Vector({
+      url: './data/vectors/A_R.geojson',
+      format: new ol.format.GeoJSON()
+    }),
+    style:  function (feature,resolution){
+            return getstyle(feature,resolution);
+      },  
+
+    visible: false,
+    title: 'test'
   })
 
   const layerGroup = new ol.layer.Group({
     layers: [
-      forestriesGeoJSON,coordinateGrid,tileDebugLayer,typesterrGeoJSON 
+      forestriesGeoJSON,coordinateGrid,tileDebugLayer,typesterrGeoJSON,TESTGeoJSON
     ]
   })
   map.addLayer(layerGroup);
@@ -293,5 +311,50 @@ const popupContainerElement = document.getElementById('popup-coordinates');
     })
     map.removeOverlay(popup);
   })
+  
+  getstyle = function (feature,resolution){
+    if (feature.get('GRIDCODE') === 1 ){
+      return new ol.style.Style({
+        fill: new ol.style.Fill({
+          color:[20, 220, 17, 1]
+        }),
+      });
+    }
+    if (feature.get('GRIDCODE') === 2 ){
+      return new ol.style.Style({
+        fill: new ol.style.Fill({
+          color:[223, 223, 1, 1]
+        }),
+      });
+    }
+    if (feature.get('GRIDCODE') === 3 ){
+      return new ol.style.Style({
+        fill: new ol.style.Fill({
+          color:[233, 182, 1, 1]
+        }),
+      });
+    }
+    if (feature.get('GRIDCODE') === 4 ){
+      return new ol.style.Style({
+        fill: new ol.style.Fill({
+          color:[233, 120, 1, 1]
+        }),
+      });
+    }
+    if (feature.get('GRIDCODE') === 5 ){
+      return new ol.style.Style({
+        fill: new ol.style.Fill({
+          color:[224, 39, 10, 1]
+        }),
+      });
+    }
+    if (feature.get('GRIDCODE') === 6 ){
+      return new ol.style.Style({
+        fill: new ol.style.Fill({
+          color:[123, 2, 0, 1]
+        }),
+      });
+    }
+  }
 
 }
