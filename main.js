@@ -31,9 +31,9 @@ function init(){
   const map = new ol.Map({
     view: new ol.View({
       center:[547860,6440180],
-      zoom: 12,
+      zoom: 7,
       maxZoom: 16,
-      minZoom: 13,
+      minZoom: 7,
       rotation: 0.5,
       projection:'EPSG:32640'
     }),
