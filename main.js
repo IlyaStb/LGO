@@ -206,7 +206,7 @@ function init(){
   
   const TESTGeoJSON = new ol.layer.VectorImage({
     source: new ol.source.Vector({
-      url: 'https://github.com/IlyaStb/LGO/releases/v.1.1.1/download/A_R.geojson',
+      url: 'https://github.com/IlyaStb/LGO/releases/latest/download/A_R.geojson',
       format: new ol.format.GeoJSON()
     }),
     style:  function (feature,resolution){
