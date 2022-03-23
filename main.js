@@ -220,12 +220,26 @@ function init(){
     visible: false,
     title: 'test'
   })
-  
-
+    
+const MunicObrJson = new ol.layer.VectorImage({
+    source: new ol.source.Vector({
+      url: './data/vectors/Muni_Obr.geojson',
+      format: new ol.format.GeoJSON()
+    }),
+    style: new ol.style.Style({
+      stroke: new ol.style.Stroke({
+        color: 'rgba(240,0,0,0.5)',
+        width: 2,
+        lineDash: [4, 1, 1, 2],
+      })
+    }),
+    visible: false,
+    title: 'MunObr'
+  })    
 
   const layerGroup = new ol.layer.Group({
     layers: [
-      forestriesGeoJSON,coordinateGrid,tileDebugLayer,typesterrGeoJSON,TESTGeoJSON
+      forestriesGeoJSON,coordinateGrid,tileDebugLayer,typesterrGeoJSON,TESTGeoJSON, MunicObrJson
     ]
   })
   map.addLayer(layerGroup);
