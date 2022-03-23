@@ -214,6 +214,9 @@ function init(){
       },
       attributions: '<a href=http://ssc.psu.ru:8080/geoserver/>© iKrakenn<a/>'
     }),
+    style: function (feature, resolution){
+      return getstyle(feature, resolution);
+    },
     visible: false,
     title: 'test'
   })
