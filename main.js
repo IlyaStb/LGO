@@ -204,18 +204,21 @@ function init(){
     title: 'TileDebugLayer'
   }) 
   
-  const TESTGeoJSON = new ol.layer.VectorImage({
-    source: new ol.source.Vector({
-      url: 'https://github.com/IlyaStb/LGO/releases/latest/A_R.geojson',
-      format: new ol.format.GeoJSON()
+    const TESTGeoJSON = new ol.layer.Tile({
+    source: new ol.source.TileWMS({
+      url:"http://ssc.psu.ru:8080/geoserver/st2021/wms",
+      params:{
+        'LAYERS': 'st2021:Alex_ErosionDanger',
+        'FORMAT': 'image/png',
+        'TRANSPARENT': true,
+      },
+      attributions: '<a href=http://ssc.psu.ru:8080/geoserver/>© iKrakenn<a/>'
     }),
-    style:  function (feature,resolution){
-            return getstyle(feature,resolution);
-      },  
-
     visible: false,
     title: 'test'
   })
+  
+
 
   const layerGroup = new ol.layer.Group({
     layers: [
