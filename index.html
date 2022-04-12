@@ -1,50 +1,116 @@
-
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Лысьвенский ГО</title>
+  <title>Эрозионная опасность Пермского края</title>
   <link rel="stylesheet" href="./libs/v6.12.0-dist/ol.css">
   <link rel="stylesheet" href="./styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
-
+<script src='./main.js'></script>
   <div class="grid-container"> 
     <div class="grid-1">
       <div class="sidebar">
-        <h2 class = "head_base" >Base Layers</h2>
+        <h2 class = "head_base" >Базовые подложки</h2>
         <input type="radio" name='baseLayerRadioButton' value='OSMStand' checked>OSM Standard<br>
         <input type="radio" name='baseLayerRadioButton' value='OSMHuman'>OSM Humanitarian<br>
         <input type="radio" name='baseLayerRadioButton' value='BingMapsSAT'>Bing Maps Satellite<br>
-        <input type="radio" name='baseLayerRadioButton' value='LocalWMS'>Local WMS, GeoServer<br>
         <input type="radio" name='baseLayerRadioButton' value='YandexStand'>Yandex Maps Standard<br>
         <input type="radio" name='baseLayerRadioButton' value='YandexSAT'>Yandex Maps Satellite<br>
         <input type="radio" name='baseLayerRadioButton' value='StamenWatercolor'>Stamen Watercolor<br>
         
-        <h2 class = "head_layers">Layers</h2>
-        <input type="checkbox" name='rasterLayerCheckBox' value='Forestries'>Границы лесной зоны<br>
-        <input type="checkbox" name='rasterLayerCheckBox' value='Territory'>Типы поверхности<br>
-        <input type="checkbox" name='rasterLayerCheckBox' value='Graticule'>Coordinates Grid<br>
+        <h2 class = "head_layers">Тематические слои</h2>
         <input type="checkbox" name='rasterLayerCheckBox' value='TileDebugLayer'>Tile Debug Layer<br>
-        <input type="checkbox" name='rasterLayerCheckBox' value='test'>Vector Test<br>
-        <input type="checkbox" name='rasterLayerCheckBox' value='MunObr'>Границы Муниципальных оразований<br>
-        
+        <input type="checkbox" name='rasterLayerCheckBox' value='Muni_Obr'>Границы муниципальных образований<br>
+        <input type="checkbox" name='rasterLayerCheckBox' value='NP'>Центры муниципальных образований<br>
+        <input type="checkbox" name='rasterLayerCheckBox' value='Subject'>Соседние субъекты федерации<br>
+
+        <h2 class = "Thematic">Муниципальные образования</h2>
+        <p><select id = "m2" class="m3" size="3" >
+          <option  value ='Alex_r' id = 'al'> Александровский МО</option>
+          <option  value ='Bardym_r' id = 'bardym'> Бардымский МО</option>
+          <option  value ='Berezniki_r' id = 'berezniki'> МО "Город Березники"</option>
+          <option  value ='Berezovsky_r' id = 'Berezovsky'> Березовский МО</option>
+          <option  value ='Bsosn_r' id = 'Bsosnovsky'> Большесосновский МО</option>
+          <option  value ='Chaikovsky_r' id = 'Chaikovsky'> Чайковский ГО</option>
+          <option  value ='Chastinsky_r' id = 'Chastinsky'> Частинский МО</option>
+          <option  value ='Cherdynsky_r' id = 'Cherdynsky'> Чердынский ГО</option>
+          <option  value ='Chernyshensky_r' id = 'Chernyshensky'> Чернушенский ГО</option>
+          <option  value ='Chusovskoy_r' id = 'Chusovskoy'> Чусовской ГО</option>
+          <option  value ='City_Perm_r' id = 'City_Perm'> МО "Город Пермь"</option>
+          <option  value ='Dobryansky_r' id = 'Dobryansky'> Добрянский ГО</option>
+          <option  value ='Elovsky_r' id = 'Elovsky'> Еловский МО</option>
+          <option  value ='Gaynsky_r' id = 'Gaynsky'> Гайнский МО</option>
+          <option  value ='Gornozavodsky_r' id = 'Gornozavodsky'> Горнозаводский ГО</option>
+          <option  value ='Gremyachinsky_r' id = 'Gremyachinsky'> Гремячинский ГО</option>
+          <option  value ='Gybakha_r' id = 'Gybakha'> Губахинский ГО</option>
+          <option  value ='Ilyinsky_r' id = 'Ilyinsky'> Ильинский ГО</option>
+          <option  value ='Karagay_r' id = 'Karagay'> Карагайский МО</option>
+          <option  value ='Kishert_r' id = 'Kishert'> Кишертский МО</option>
+          <option  value ='Kochevsky_r' id = 'Kochevsky'> Кочевский МО</option>
+          <option  value ='Kosinsky_r' id = 'Kosinsky'> Косинский МО</option>
+          <option  value ='Krasnokamsky_r' id = 'Krasnokamsky'> Краснокамский ГО</option>
+          <option  value ='Krasnovishersky_r' id = 'Krasnovishersky'> Красновишерский ГО</option>
+          <option  value ='Kydimkar_r' id = 'Kydimkar'> Кудымкарский МО</option>
+          <option  value ='Kyeda_r' id = 'Kyeda'> Куединский МО</option>
+          <option  value ='Kyngur_r' id = 'Kyngur'> Кунгурский МО</option>
+          <option  value ='Kyzel_r' id = 'kyzel'> ГО "Город Кизел"</option>
+          <option  value ='Lysva_r' id = 'Lysva'> Лысьвенский ГО</option>
+          <option  value ='Nytva_r' id = 'Nytva'>Нытвенский ГО</option>
+          <option  value ='Ochor_r' id = 'Ochor'> Очёрский ГО</option>
+          <option  value ='Octyabr_r' id = 'Octyabr'> Октябрьский ГО</option>
+          <option  value ='Okhansky_r' id = 'Okhansky'> Оханский ГО</option>
+          <option  value ='Ordynsky_r' id = 'Ordynsky'> Ординский МО</option>
+          <option  value ='Osinsky_r' id = 'Osinsky'> Осинский ГО</option>
+          <option  value ='PermArea_r' id = 'PermArea'> Пермский мун. район</option>
+          <option  value ='Sivinsky_r' id = 'Sivinsky'> Сивинский МО</option>
+          <option  value ='Solikamsky_r' id = 'Solikamsky'> Соликамский ГО</option>
+          <option  value ='Syksynsky_r' id = 'Syksynsky'> Суксунский ГО</option>
+          <option  value ='Urlinsky_r' id = 'Urlinsky'> Юрлинский МО</option>
+          <option  value ='Vereshaginsky_r' id = 'Vereshaginsky'> Верещагинский ГО</option>
+          <option  value ='Uinsky_r' id = 'Uinsky'> Уинский МО</option>
+          <option  value ='Usolsky_r' id = 'Usolsky'> Услоский мун.район</option>
+          <option  value ='Usvinsky_r' id = 'Usvisky'> Юсьвинский МО</option>
+        </select></p>
+        <span class="focus"></span>
       </div>
     </div>
     <div class="grid-2">
       <p id='popup-coordinates' class = 'popup-output'></p>
       <div id='js-map' class='map'></div>
     </div>
+    
+    <div class='overlay-container'>
+      <span class='overlay-text' id='local- Mun_Obr'></span><br>
+      <span class='overlay-text' id='local- kat1'></span><br>
+      <span class='overlay-text' id='local- kat2'></span><br>
+      <span class='overlay-text' id='local- kat3'></span><br>
+      <span class='overlay-text' id='local- kat4'></span><br>
+      <span class='overlay-text' id='local- kat5'></span><br>
+    </div>
+    <div class = 'overlay-NP'>
+      <span class = 'overlay-text' id = 'local - NP'></span>
+    </div>
 
   </div>
-  <div id="main_title">  <h2>ЛЫСЬВЕНСКИЙ ГОРОДСКОЙ ОКРУГ</h2> </div>
+  <div id="main_title"> 
+        <div
+        id = "image_on_title" 
+        class="main-title-image">
+          <img src="./pic/gerb3.png">
+        </div> 
+        <h2>ЭРОЗИОННАЯ ОПАСНОСТЬ ПЕРМСКОГО КРАЯ</h2> 
+  </div>
+  <img id="legend"/>
+  <div>
+
+  </div>
   <script src='./libs/v6.12.0-dist/ol.js'></script>
-<!--
-  <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.5.0/build/ol.js"></script>
--->
-<script src='./main.js'></script>
-<script src='./libs/proj4-src.js'></script>
+  <script src='./libs/proj4-src.js'></script>
+  <script src="https://cdn.maptiler.com/ol-mapbox-style/v5.0.2/olms.js"></script>
+
 <script src="./libs/proj4.js"></script>
 </body>
 </html>
