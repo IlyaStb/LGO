@@ -6,6 +6,10 @@
   <title>Эрозионная опасность Пермского края</title>
   <link rel="stylesheet" href="./libs/v6.12.0-dist/ol.css">
   <link rel="stylesheet" href="./styles.css">
+  <script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -31,23 +35,19 @@
 
         <h2 class = "Thematic">Муниципальные образования</h2>
         <p><select id = "m2" class="m3" size="6" >
+          <option  value ='refr' id = 'al'>ВЫКЛЮЧИТЬ ВЫБРАННОЕ</option>
           <option  value ='Alex_r' id = 'al'> Александровский МО</option>
           <option  value ='Bardym_r' id = 'bardym'> Бардымский МО</option>
-          <option  value ='Berezniki_r' id = 'berezniki'> МО "Город Березники"</option>
           <option  value ='Berezovsky_r' id = 'Berezovsky'> Березовский МО</option>
           <option  value ='Bsosn_r' id = 'Bsosnovsky'> Большесосновский МО</option>
-          <option  value ='Chaikovsky_r' id = 'Chaikovsky'> Чайковский ГО</option>
-          <option  value ='Chastinsky_r' id = 'Chastinsky'> Частинский МО</option>
-          <option  value ='Cherdynsky_r' id = 'Cherdynsky'> Чердынский ГО</option>
-          <option  value ='Chernyshensky_r' id = 'Chernyshensky'> Чернушенский ГО</option>
-          <option  value ='Chusovskoy_r' id = 'Chusovskoy'> Чусовской ГО</option>
-          <option  value ='City_Perm_r' id = 'City_Perm'> МО "Город Пермь"</option>
-          <option  value ='Dobryansky_r' id = 'Dobryansky'> Добрянский ГО</option>
-          <option  value ='Elovsky_r' id = 'Elovsky'> Еловский МО</option>
+          <option  value ='Vereshaginsky_r' id = 'Vereshaginsky'> Верещагинский ГО</option>
           <option  value ='Gaynsky_r' id = 'Gaynsky'> Гайнский МО</option>
           <option  value ='Gornozavodsky_r' id = 'Gornozavodsky'> Горнозаводский ГО</option>
           <option  value ='Gremyachinsky_r' id = 'Gremyachinsky'> Гремячинский ГО</option>
           <option  value ='Gybakha_r' id = 'Gybakha'> Губахинский ГО</option>
+          <option  value ='Kyzel_r' id = 'kyzel'> ГО "Город Кизел"</option>
+          <option  value ='Dobryansky_r' id = 'Dobryansky'> Добрянский ГО</option>
+          <option  value ='Elovsky_r' id = 'Elovsky'> Еловский МО</option>
           <option  value ='Ilyinsky_r' id = 'Ilyinsky'> Ильинский ГО</option>
           <option  value ='Karagay_r' id = 'Karagay'> Карагайский МО</option>
           <option  value ='Kishert_r' id = 'Kishert'> Кишертский МО</option>
@@ -58,8 +58,9 @@
           <option  value ='Kydimkar_r' id = 'Kydimkar'> Кудымкарский МО</option>
           <option  value ='Kyeda_r' id = 'Kyeda'> Куединский МО</option>
           <option  value ='Kyngur_r' id = 'Kyngur'> Кунгурский МО</option>
-          <option  value ='Kyzel_r' id = 'kyzel'> ГО "Город Кизел"</option>
           <option  value ='Lysva_r' id = 'Lysva'> Лысьвенский ГО</option>
+          <option  value ='City_Perm_r' id = 'City_Perm'> МО "Город Пермь"</option>
+          <option  value ='Berezniki_r' id = 'berezniki'> МО "Город Березники"</option>
           <option  value ='Nytva_r' id = 'Nytva'>Нытвенский ГО</option>
           <option  value ='Ochor_r' id = 'Ochor'> Очёрский ГО</option>
           <option  value ='Octyabr_r' id = 'Octyabr'> Октябрьский ГО</option>
@@ -70,14 +71,25 @@
           <option  value ='Sivinsky_r' id = 'Sivinsky'> Сивинский МО</option>
           <option  value ='Solikamsky_r' id = 'Solikamsky'> Соликамский ГО</option>
           <option  value ='Syksynsky_r' id = 'Syksynsky'> Суксунский ГО</option>
-          <option  value ='Urlinsky_r' id = 'Urlinsky'> Юрлинский МО</option>
-          <option  value ='Vereshaginsky_r' id = 'Vereshaginsky'> Верещагинский ГО</option>
           <option  value ='Uinsky_r' id = 'Uinsky'> Уинский МО</option>
           <option  value ='Usolsky_r' id = 'Usolsky'> Услоский мун.район</option>
+          <option  value ='Chaikovsky_r' id = 'Chaikovsky'> Чайковский ГО</option>
+          <option  value ='Chastinsky_r' id = 'Chastinsky'> Частинский МО</option>
+          <option  value ='Cherdynsky_r' id = 'Cherdynsky'> Чердынский ГО</option>
+          <option  value ='Chernyshensky_r' id = 'Chernyshensky'> Чернушенский ГО</option>
+          <option  value ='Chusovskoy_r' id = 'Chusovskoy'> Чусовской ГО</option>
+          <option  value ='Urlinsky_r' id = 'Urlinsky'> Юрлинский МО</option>
           <option  value ='Usvinsky_r' id = 'Usvisky'> Юсьвинский МО</option>
         </select></p>
         <span class="focus"></span>
       </div>
+      <button class="main-myButton">Скрыть блок статистики</button>
+      <button class="main-myButton2">Скрыть блок легенды</button>
+    <form action="https://github.com/IlyaStb/LGO/releases/tag/v.1.1.1/?" method="get" target="_blank">
+      <button type="submit" class="main-myButton3">Скачать данные</button>
+    </form>
+      <ul class="content">
+    </ul>
     </div>
     <div class="grid-2">
       <div id='js-map' class='map'></div>
