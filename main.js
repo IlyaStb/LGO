@@ -1008,6 +1008,21 @@ function init(){
     window.open('https://admin.permkrai.ru/?', '_blank');
 };
 
+  
+$(() => {
+  $(".main-myButton").click(() => {
+      $(".content").slideToggle();
+      $(".overlay-container").slideToggle();
+  });
+});
+
+$(() => {
+  $(".main-myButton2").click(() => {
+      $(".content").slideToggle();
+      $(".main-title-image2").slideToggle();
+  });
+});
+  
   const selectInteraction = new ol.interaction.Select({
     condition: ol.events.condition.singleClick,
     layers: function(layer){
