@@ -234,13 +234,41 @@ position: relative;
   border: none;
   border-radius: 7px;
   box-shadow: 0 3px #999;
-  top:5;
+  top:35;
   left: 45;
 }
 
 .main-myButton:hover {background-color: #3e8e41}
 
 .main-myButton:active {
+  background-color: #3e8e41;
+  box-shadow: 0 1px #666;
+  transform: translateY(4px);
+}
+
+.main-myButton5{
+  position: relative;
+  font-weight:lighter;
+  font-family: system-ui, sans-serif;
+  display: inline-block;
+  padding: 5px 10px;
+  font-size: 10px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #ffe8c7;
+  background-color: #41A78B;
+  border: none;
+  border-radius: 7px;
+  box-shadow: 0 3px #999;
+  top:0;
+  left: 61;
+}
+
+.main-myButton5:hover {background-color: #3e8e41}
+
+.main-myButton5:active {
   background-color: #3e8e41;
   box-shadow: 0 1px #666;
   transform: translateY(4px);
@@ -262,7 +290,7 @@ position: relative;
   border: none;
   border-radius: 7px;
   box-shadow: 0 3px #999;
-  top: 10;
+  top: 40;
   left: 50;
 }
 
@@ -290,7 +318,7 @@ position: relative;
   border: none;
   border-radius: 7px;
   box-shadow: 0 3px #999;
-  top: 15;
+  top: 45;
   left: 60;
 }
 
@@ -301,6 +329,90 @@ position: relative;
   box-shadow: 0 1px #666;
   transform: translateY(4px);
 }
+
+.main-myButton4{
+  position: relative;
+  font-weight:lighter;
+  font-family: system-ui, sans-serif;
+  display: inline-block;
+  padding: 5px 10px;
+  font-size: 10px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #ffe8c7;
+  background-color: #41A78B;
+  border: none;
+  border-radius: 7px;
+  box-shadow: 0 3px #999;
+  top: 30;
+  right: 53;
+}
+
+.main-myButton4:hover {background-color: #3e8e41}
+
+.main-myButton4:active {
+  background-color: #3e8e41;
+  box-shadow: 0 1px #666;
+  transform: translateY(4px);
+}
+
+.measurement{
+  width: 80;
+  height: 150;
+  bottom:330px;
+  right: 5px;
+  position: absolute;
+  display: flex;
+  border: 1mm ridge #41A78B;
+  background-color: 	#E1FFF7;
+  border-radius: 10px;
+  font-weight: bold;
+  font-family: 'PT Sans Narrow', sans-serif;
+  color:#41A78B;
+  font-size: 12px;
+
+}
+.HowitWork{
+  position: relative;
+  bottom: 30;
+  left: 40;
+  font-weight:lighter;
+  font-family: system-ui, sans-serif;
+  display: inline-block;
+  padding: 5px 10px;
+  font-size: 10px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #ffe8c7;
+  background-color: #41A78B;
+  border: none;
+  border-radius: 7px;
+  box-shadow: 0 3px #999;
+}
+
+.HowitWork:hover {background-color: #3e8e41}
+
+.HowitWork:active {
+  background-color: #3e8e41;
+  box-shadow: 0 1px #666;
+  transform: translateY(4px);
+}
+
+.I3{
+  position: relative;
+  font-size: 12;
+  bottom: 0;
+}
+.measuretype{
+  position: relative;
+  top: 50;
+  right: 65;
+}
+
 
 
 
