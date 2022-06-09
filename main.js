@@ -1023,6 +1023,21 @@ $(() => {
       $(".main-title-image2").slideToggle();
   });
 });
+
+$(() => {
+  $(".main-myButton4").click(() => {
+      $(".content").slideToggle();
+      $(".measurement").slideToggle();
+  });
+});
+
+document.getElementById("pressme").onclick = function(){
+  alert("Измерение длин и площадей рекомендуется проводить через правую кнопку мыши, во избежание конфликта с другими функциями сервиса");
+}
+document.getElementById("pressme2").onclick = function(){
+  alert("Данный веб-сервис предоставляет информацию о пространственном распределении эрозионной опасности на территории муниципальных образований Пермского края. Выберите нужное вам муниципальное образование и на экране отобразится поверхность с распределением эрозии. Также вы можее скачать данные в формате Shape. Изображения могут не загружаться в браузерах Chrome и Edge, если это произошло, предоставьте разрешение для этого сайта для загрузки небезопасного контента. Либо выберите браузер FireFox" 
+  );
+}
   
   const selectInteraction = new ol.interaction.Select({
     condition: ol.events.condition.singleClick,
@@ -1065,4 +1080,157 @@ $(() => {
       }
     })
   })
+  
+    const measuretype = document.querySelectorAll('.measuretype > input[type=radio]')
+  measuretype[2].checked = true;
+  var mes_Source = new ol.source.Vector();
+  var mes_Layer = new ol.layer.Vector({
+    source: mes_Source,
+    style: new ol.style.Style({
+      fill: new ol.style.Fill({
+        color: 'rgba(255, 255, 255, 0.2)'
+      }),
+      stroke: new ol.style.Stroke({
+        color: '#ffcc33',
+        width: 2
+      }),
+      image: new ol.style.Circle({
+        radius: 7,
+        fill: new ol.style.Fill({
+          color: '#ffcc33'
+        })
+      })
+    })
+  });
+  map.addLayer(mes_Layer);
+
+  var draw;
+  var sketch;
+  var measureTooltipElement;
+  var measureTooltip;
+
+
+  var formatLength = function (line) {
+    let length = line.getLength();
+    let output;
+    length2 = length/2;
+    if (length2 > 1000) {
+      output = (Math.round(length2 / 1000 * 100) / 100 ) + ' ' + 'км';
+    } else {
+      output = (Math.round(length2)) + ' ' + 'м';
+    }
+    return output;
+  };
+
+
+  var formatArea = function (polygon) {
+    let area = polygon.getArea();
+    let output;
+    area4 = area/3.5;
+    if (area4 > 10000) {
+      output = (Math.round(area4 / 1000000 * 100) / 100) + ' ' + 'км<sup>2</sup>';
+    } else {
+      output = (Math.round(area4 * 100) / 100) + ' ' + 'м<sup>2</sup>';
+    }
+    return output;
+  };
+
+
+  function addInteraction() {
+    let type = (measuretype[1].checked == true ? 'Polygon' : 'LineString');
+    if (measuretype[1].checked == true) { type = 'Polygon'; }
+    else if (measuretype[0].checked == true) { type = 'LineString'; }
+    console.log(type)
+    draw = new ol.interaction.Draw({
+      source: mes_Source,
+      type: type,
+      style: new ol.style.Style({
+        fill: new ol.style.Fill({
+          color: 'rgba(255, 255, 255, 0.5)'
+        }),
+        stroke: new ol.style.Stroke({
+          color: 'rgba(0, 0, 0, 0.5)',
+          lineDash: [10, 10],
+          width: 2
+        }),
+        image: new ol.style.Circle({
+          radius: 5,
+          stroke: new ol.style.Stroke({
+            color: 'rgba(0, 0, 0, 0.7)'
+          }),
+          fill: new ol.style.Fill({
+            color: 'rgba(255, 255, 255, 0.5)'
+          })
+        })
+      })
+    });
+    if (measuretype[2].checked == true /*|| measuretype.value == 'clear'*/) {
+      map.removeInteraction(draw);
+      if (mes_Layer) { mes_Layer.getSource().clear(); }
+      if (measureTooltipElement) {
+        let elem = document.getElementsByClassName("tooltip tooltip-static");
+        for (let i = elem.length - 1; i >= 0; i--) {
+          elem[i].remove();
+        }
+      }
+    } else if (measuretype[1].checked == true || measuretype[0].checked == true) {
+      map.addInteraction(draw);
+      createMeasureTooltip();
+      let listener;
+      draw.on('drawstart',
+        function (evt) {
+          sketch = evt.feature;
+          let tooltipCoord = evt.coordinate;
+          listener = sketch.getGeometry().on('change', function (evt) {
+            let geom = evt.target;
+            let output;
+            if (geom instanceof ol.geom.Polygon) {
+              output = formatArea(geom);
+              tooltipCoord = geom.getInteriorPoint().getCoordinates();
+            } else if (geom instanceof ol.geom.LineString) {
+              output = formatLength(geom);
+              tooltipCoord = geom.getLastCoordinate();
+            }
+            measureTooltipElement.innerHTML = output;
+            measureTooltip.setPosition(tooltipCoord);
+          });
+        }, this
+      );
+      draw.on('drawend',
+        function () {
+          measureTooltipElement.className = 'tooltip tooltip-static';
+          measureTooltip.setOffset([0, -7]);
+          sketch = null;
+          measureTooltipElement = null;
+          createMeasureTooltip();
+          ol.Observable.unByKey(listener);
+        }, this
+      );
+    }
+  }
+
+
+  function createMeasureTooltip() {
+    if (measureTooltipElement) {
+      measureTooltipElement.parentNode.removeChild(measureTooltipElement);
+    }
+    measureTooltipElement = document.createElement('div');
+    measureTooltipElement.className = 'tooltip tooltip-measure';
+    measureTooltip = new ol.Overlay({
+      element: measureTooltipElement,
+      offset: [0, -15],
+      positioning: 'bottom-center'
+    });
+    map.addOverlay(measureTooltip);
+  }
+
+
+  for(let measuretyp of measuretype){
+    measuretyp.addEventListener('change', function(){
+      map.removeInteraction(draw);
+      addInteraction();
+    })
+  }
+
+  
 }
