@@ -222,7 +222,6 @@ position: relative;
   position: absolute;
 }
 .main-myButton{
-position: relative;
   font-weight:lighter;
   font-family: system-ui, sans-serif;
   display: inline-block;
@@ -237,8 +236,6 @@ position: relative;
   border: none;
   border-radius: 7px;
   box-shadow: 0 3px #999;
-  top:60;
-  right: 176;
 }
 
 .main-myButton:hover {background-color: #3e8e41}
@@ -250,7 +247,6 @@ position: relative;
 }
 
 .main-myButton5{
-  position: relative;
   font-weight:lighter;
   font-family: system-ui, sans-serif;
   display: inline-block;
@@ -265,8 +261,6 @@ position: relative;
   border: none;
   border-radius: 7px;
   box-shadow: 0 3px #999;
-  top:0;
-  left: 65;
 }
 
 .main-myButton5:hover {background-color: #3e8e41}
@@ -278,7 +272,6 @@ position: relative;
 }
 
 .main-myButton2{
-position: relative;
   font-weight:lighter;
   font-family: system-ui, sans-serif;
   display: inline-block;
@@ -293,8 +286,6 @@ position: relative;
   border: none;
   border-radius: 7px;
   box-shadow: 0 3px #999;
-  top: 90;
-  right: 298;
 }
 
 .main-myButton2:hover {background-color: #3e8e41}
@@ -306,7 +297,6 @@ position: relative;
 }
 
 .main-myButton3{
-  position: relative;
   font-weight:lighter;
   font-family: system-ui, sans-serif;
   display: inline-block;
@@ -321,8 +311,6 @@ position: relative;
   border: none;
   border-radius: 7px;
   box-shadow: 0 3px #999;
-  top: 100;
-  left: 65;
 }
 
 
@@ -335,7 +323,6 @@ position: relative;
 }
 
 .main-myButton4{
-  position: relative;
   font-weight:lighter;
   font-family: system-ui, sans-serif;
   display: inline-block;
@@ -350,8 +337,6 @@ position: relative;
   border: none;
   border-radius: 7px;
   box-shadow: 0 3px #999;
-  top: 30;
-  right: 49;
 }
 
 .main-myButton4:hover {background-color: #3e8e41}
