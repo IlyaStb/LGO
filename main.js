@@ -219,7 +219,8 @@ function init(){
       attributions: '<a href=http://ssc.psu.ru:8080/geoserver/>© iKraken<a/>'
     }),
     visible: false,
-    title: 'Alex_r'
+    title: 'Alex_r',
+    crossorigin: "anonymous"
   })
 
 
