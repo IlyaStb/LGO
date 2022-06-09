@@ -336,6 +336,33 @@ position: relative;
   transform: translateY(4px);
 }
 
+.main-myButton4{
+  font-weight:lighter;
+  font-family: system-ui, sans-serif;
+  display: inline-block;
+  padding: 5px 10px;
+  font-size: 10px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #ffe8c7;
+  background-color: #41A78B;
+  border: none;
+  border-radius: 7px;
+  box-shadow: 0 3px #999;
+}
+
+
+.main-myButton4:hover {background-color: #3e8e41}
+
+.main-myButton4:active {
+  background-color: #3e8e41;
+  box-shadow: 0 1px #666;
+  transform: translateY(4px);
+}
+
+
 .measurement{
   width: 80;
   height: 150;
