@@ -42,7 +42,24 @@ body {
     font-size: 12px;
   
     }
+.bottom_panel{
+  width: 700;
+  height: 50;
+  bottom:0px;
+  right: 300px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1mm ridge #41A78B;
+  background-color: 	#E1FFF7;
+  border-radius: 10px;
+  font-weight: bold;
+  font-family: 'PT Sans Narrow', sans-serif;
+  color:#41A78B;
+  font-size: 12px;
 
+}
 .map {
  height: 100vh;
  width: 85vw;
