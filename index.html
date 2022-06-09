@@ -83,6 +83,8 @@
         </select></p>
         <span class="focus"></span>
       </div>
+      <button class="main-myButton5" id = "pressme2">Как это работает</button>
+      <button class="main-myButton4">Скрыть блок измерений</button>
       <button class="main-myButton">Скрыть блок статистики</button>
       <button class="main-myButton2">Скрыть блок легенды</button>
     <form action="https://github.com/IlyaStb/LGO/releases/tag/v.1.1.1/?" method="get" target="_blank">
@@ -94,7 +96,6 @@
     <div class="grid-2">
       <div id='js-map' class='map'></div>
     </div>
-    
     <div class='overlay-container'>
       <span class='overlay-text' id='local- Mun_Obr'></span><br>
       <span class='overlay-text' id='local- kat1'></span><br>
@@ -106,7 +107,6 @@
     <div class = 'overlay-NP'>
       <span class = 'overlay-text' id = 'local - NP'></span>
     </div>
-
   </div>
   <div id="main_title"> 
         <div
@@ -121,6 +121,15 @@
   <div id="main_title2"
   class="main-title-image2">
     <img src="./pic/legend3.png">
+  </div>
+  <div id="measure" class = "measurement">
+    <h2 class = "I3">Измерить характеристики</h2>
+    <div class = 'measuretype' id="measuretype">
+      <input type="radio" name='RButton' value="length">Длина<br>
+      <input type="radio" name='RButton' value="area">Площадь
+      <input type="radio" name='RButton' value="select" checked>Сброс<br>
+      <button class="HowitWork" id = "pressme">?</button>
+    </div>
   </div>
   <script src='./libs/v6.12.0-dist/ol.js'></script>
   <script src='./libs/proj4-src.js'></script>
