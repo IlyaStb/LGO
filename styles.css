@@ -218,9 +218,6 @@ position: relative;
 .content {
   display: none;
 }
-.div3{
-  position: absolute;
-}
 .main-myButton{
   font-weight:lighter;
   font-family: system-ui, sans-serif;
