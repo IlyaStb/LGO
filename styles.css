@@ -370,11 +370,8 @@ position: relative;
 }
 
 .measurement{
-  width: 80;
-  height: 150;
-  bottom: 400px;
-  right: 5px;
-  position: absolute;
+  width: 65;
+  height: 87;
   display: flex;
   border: 1mm ridge #41A78B;
   background-color: 	#E1FFF7;
@@ -387,8 +384,6 @@ position: relative;
 }
 .HowitWork{
   position: relative;
-  bottom: 30;
-  left: 40;
   font-weight:lighter;
   font-family: system-ui, sans-serif;
   display: inline-block;
@@ -413,15 +408,9 @@ position: relative;
   transform: translateY(4px);
 }
 
-.I3{
-  position: relative;
-  font-size: 12;
-  bottom: 0;
-}
 .measuretype{
   position: relative;
-  top: 50;
-  right: 65;
+  font-size: 10;
 }
 
 
