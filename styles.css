@@ -372,7 +372,7 @@ position: relative;
 .measurement{
   width: 80;
   height: 150;
-  bottom:330;
+  bottom:500;
   right: 5;
   position: absolute;
   display: flex;
