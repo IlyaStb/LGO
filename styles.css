@@ -372,8 +372,8 @@ position: relative;
 .measurement{
   width: 80;
   height: 150;
-  bottom:500;
-  right: 5;
+  bottom: 400px;
+  right: 5px;
   position: absolute;
   display: flex;
   border: 1mm ridge #41A78B;
