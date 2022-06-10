@@ -83,6 +83,14 @@
         </select></p>
         <span class="focus"></span>
       </div>
+        <div id="measure" class = "measurement">
+        <div class = 'measuretype' id="measuretype">
+      <input type="radio" name='RButton' value="length">Длина<br>
+      <input type="radio" name='RButton' value="area">Площадь<br>
+      <input type="radio" name='RButton' value="select" checked>Сброс<br>
+      <button class="HowitWork" id = "pressme">?</button>
+    </div>
+  </div>
       <ul class="content">
       </ul>
     </div>
@@ -123,15 +131,7 @@
   class="main-title-image2">
     <img src="./pic/legend3.png">
   </div>
-  <div id="measure" class = "measurement">
-    <h2 class = "I3">Измерить характеристики</h2>
-    <div class = 'measuretype' id="measuretype">
-      <input type="radio" name='RButton' value="length">Длина<br>
-      <input type="radio" name='RButton' value="area">Площадь
-      <input type="radio" name='RButton' value="select" checked>Сброс<br>
-      <button class="HowitWork" id = "pressme">?</button>
-    </div>
-  </div>
+
   <script src='./libs/v6.12.0-dist/ol.js'></script>
   <script src='./libs/proj4-src.js'></script>
   <script src="https://cdn.maptiler.com/ol-mapbox-style/v5.0.2/olms.js"></script>
