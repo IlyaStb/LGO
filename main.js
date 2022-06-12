@@ -214,11 +214,12 @@ function init(){
       params:{
         LAYERS: 'webapps:Alexandrowsky_erosion',
         FORMAT: 'image/png',
-        TRANSPARENT: true
+        TRANSPARENT: true,
+        crossorigin: "anonymous"
       },
       serverType: 'geoserver',
       attributions: '<a href=http://ssc.psu.ru:8080/geoserver/>© iKraken<a/>',
-      crossorigin: "anonymous"
+
     }),
     visible: false,
     title: 'Alex_r',
