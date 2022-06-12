@@ -216,7 +216,9 @@ function init(){
         FORMAT: 'image/png',
         TRANSPARENT: true
       },
-      attributions: '<a href=http://ssc.psu.ru:8080/geoserver/>© iKraken<a/>'
+      serverType: 'geoserver',
+      attributions: '<a href=http://ssc.psu.ru:8080/geoserver/>© iKraken<a/>',
+      crossorigin: "anonymous"
     }),
     visible: false,
     title: 'Alex_r',
